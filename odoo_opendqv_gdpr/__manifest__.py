@@ -23,7 +23,7 @@ Zero breaking changes. Fully opt-in. MIT licensed.
     """,
     'author': 'Sunny Sharma / OpenDQV',
     'website': 'https://github.com/OpenDQV/OpenDQV',
-    'license': 'MIT',
+    'license': 'LGPL-3',
     'depends': ['base', 'mail'],
     'data': [
         'security/ir.model.access.csv',
