@@ -1,0 +1,94 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">OpenDQV — GDPR Article 30 ROPA</h2>
+        <h3 class="oe_slogan">Write-time enforcement for your Record of Processing Activities</h3>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color:#875A7B;">The problem this solves</h2>
+        <div class="oe_span12">
+            <p class="oe_mt32 text-center">
+                UK and EU GDPR Article 30 requires every data controller to maintain a Record of Processing Activities (ROPA).
+                Odoo has no built-in mechanism to enforce completeness at save time.
+            </p>
+            <p class="text-center">
+                A ROPA entry can be saved with no lawful basis, no retention period, or with
+                <strong>consent selected but no consent mechanism recorded</strong> — silently,
+                with no validation error. That is an ICO audit failure waiting to happen.
+            </p>
+            <p class="text-center">
+                This module closes that gap. Every ROPA entry is validated against the
+                <strong>OpenDQV <code>gdpr_processing_record</code> contract</strong>
+                before it reaches the database.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color:#875A7B;">What it adds</h2>
+        <div class="oe_span12">
+            <ul>
+                <li>A dedicated <strong>gdpr.processing.record</strong> model covering all Article 30(1) fields</li>
+                <li>Write-time validation — missing or invalid fields raise a clear error <strong>before</strong> the record is committed</li>
+                <li>Conditional field enforcement: consent fields required when lawful basis is consent; LIA fields required for legitimate interests; special category basis required when processing special category data; transfer safeguard required when international transfer is flagged</li>
+                <li>Odoo chatter and activity tracking on every ROPA entry — full audit trail of who changed what and when</li>
+                <li>Tree view with <strong>Awaiting DPO Review</strong> filter</li>
+                <li>Form view with conditional field visibility — only relevant fields shown based on lawful basis and data type</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color:#875A7B;">Article 30 fields covered</h2>
+        <div class="oe_span12">
+            <table class="table table-bordered">
+                <thead><tr><th>Section</th><th>Fields</th></tr></thead>
+                <tbody>
+                    <tr><td>Identity</td><td>Record name, controller name</td></tr>
+                    <tr><td>Processing</td><td>Purpose, lawful basis, data categories, data subjects, recipients, retention period</td></tr>
+                    <tr><td>Consent (conditional)</td><td>Consent mechanism, consent timestamp, withdrawal mechanism</td></tr>
+                    <tr><td>Legitimate interests (conditional)</td><td>LIA completed, LIA date</td></tr>
+                    <tr><td>Special category data (conditional)</td><td>Special category flag, Article 9(2) basis, data types</td></tr>
+                    <tr><td>International transfers (conditional)</td><td>Transfer flag, safeguard mechanism</td></tr>
+                    <tr><td>DPO audit trail</td><td>Reviewed by, review date</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color:#875A7B;">Fully opt-in</h2>
+        <div class="oe_span12">
+            <ul>
+                <li>Validation is <strong>off by default</strong> — set <code>ENABLE_OPENDQV_VALIDATION=true</code> to enable</li>
+                <li>If <code>opendqv</code> is not installed, the validation step skips silently — no error, no breaking change</li>
+                <li>Zero impact on existing Odoo data</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color:#875A7B;">Requirements</h2>
+        <div class="oe_span12">
+            <ul>
+                <li>Odoo 17.0</li>
+                <li><code>pip install opendqv&gt;=1.4.0</code> (PyPI) — required for validation enforcement</li>
+                <li>Set <code>ENABLE_OPENDQV_VALIDATION=true</code> in your Odoo environment</li>
+            </ul>
+            <p>
+                OpenDQV is open source (MIT). Source and documentation:
+                <a href="https://github.com/OpenDQV/OpenDQV">github.com/OpenDQV/OpenDQV</a>
+            </p>
+        </div>
+    </div>
+</section>
